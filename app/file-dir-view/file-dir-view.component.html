@@ -1,0 +1,29 @@
+<!-- Template with Recursion -->
+
+<!--List Files-->
+<p><b>Files in this Folder</b></p>
+<ng-container *ngIf="dirData.fileNames.length > 0; else NoFiles">
+  <ol>
+    <ng-container *ngFor="let fileName of dirData.fileNames">
+      <li>{{ fileName }}</li>
+    </ng-container>
+  </ol>
+</ng-container>
+<ng-template #NoFiles>
+  <p>There are no files in this directory.</p>
+</ng-template>
+
+<p><b>Child Directories</b></p>
+<ng-container *ngIf="dirData.childDirs.length > 0; else NoDirs">
+  <ol>
+    <ng-container *ngFor="let dir of dirData.childDirs">
+      <!-- Here we make the recursive call. If array is empty we've reached our base case -->
+      <li>
+        <file-dir-view [dirData]="dir"></file-dir-view>
+      </li>
+    </ng-container>
+  </ol>
+</ng-container>
+<ng-template #NoDirs>
+  <p>There are no child directories in this directory.</p>
+</ng-template>

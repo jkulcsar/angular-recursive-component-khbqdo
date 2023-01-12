@@ -1,0 +1,7 @@
+/*
+* Apply some spacing to recursive component rendering
+* Note that this will not apply the style to itself, just to its recursive children
+*/
+file-dir-view {
+  margin-left: 10px;
+}

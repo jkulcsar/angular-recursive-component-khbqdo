@@ -1,0 +1,13 @@
+<div *ngFor="let property of object | keyvalue">
+  <div *ngIf="isObject(property.value)">
+    {{ property.key }}:
+    <ul>
+      <li>
+        <app-object-display [object]="property.value"></app-object-display>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!isObject(property.value)">
+    <li>{{ property.key }}: {{ property.value }}</li>
+  </div>
+</div>
